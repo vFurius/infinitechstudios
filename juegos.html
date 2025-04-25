@@ -1,93 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Juegos - InfiniTech Studios</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/css/style.css">
   <style>
-    header {
-      font-size: 1.5rem;
-      padding: 1.5rem 3rem;
-    }
-    nav a {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
     .game-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
     }
     .game-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-
-    body {
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .fade-background {
-      transition: background-image 0.5s ease-in-out;
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
     }
 
     .modal {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8);
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 100;
+      animation: fadeIn 0.4s ease;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
     .modal-content {
       background-color: #1f1f1f;
-      padding: 3rem;
+      padding: 2rem;
       border-radius: 1rem;
-      max-width: 1000px;
       width: 90%;
+      max-width: 960px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-align: left;
+      flex-direction: row;
+      gap: 2rem;
     }
+
     .modal-content img {
-      width: 40%;
       border-radius: 10px;
+      width: 45%;
     }
-    .modal h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .modal p {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .modal .button {
-      margin-top: 2rem;
-      padding: 10px 20px;
-      background-color: #e53e3e;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .modal .button:hover {
-      background-color: #c53030;
-    }
-    .estado-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+
     .estado-badge::before {
       content: "";
       width: 0.75rem;
@@ -98,53 +57,56 @@
     }
   </style>
 </head>
-<body class="bg-black text-white fade-background transition-all duration-500" id="juegosBody" style="background-image: none;">
-  <header class="p-6 flex justify-between items-center bg-gray-900">
+<body class="bg-black text-white transition-all duration-500" id="juegosBody">
+  <header class="p-6 flex justify-between items-center bg-gray-900 shadow-md">
     <img src="assets/Logo.png" alt="Logo" class="h-12">
-    <nav class="space-x-6">
-      <a href="index.html">Inicio</a>
-      <a href="juegos.html">Juegos</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="noticias.html">Noticias</a>
-      <a href="contacto.html">Contacto</a>
-      <a href="login.html">Login</a>
+    <nav class="space-x-6 text-lg font-medium">
+      <a href="index.html" class="hover:text-red-400">Inicio</a>
+      <a href="juegos.html" class="hover:text-red-400">Juegos</a>
+      <a href="nosotros.html" class="hover:text-red-400">Nosotros</a>
+      <a href="noticias.html" class="hover:text-red-400">Noticias</a>
+      <a href="contacto.html" class="hover:text-red-400">Contacto</a>
+      <a href="login.html" class="hover:text-red-400">Login</a>
     </nav>
   </header>
 
-  <main class="py-10 px-4">
-    <h1 class="text-4xl text-center mb-8">Nuestros Juegos</h1>
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="bg-gray-800 p-4 rounded shadow-lg game-card" onclick="mostrarJuego('juego1')">
-        <img src="assets/juegos/juego1.png" alt="Juego 1" class="mb-4 w-full rounded">
-        <h2 class="text-2xl mb-2">Plantas Vs. Zombies Remade</h2>
-        <p class="mb-2">Un remade necesario para un gran juego</p>
-        <p class="text-sm text-gray-400 estado-badge">Estado: En desarrollo</p>
+  <main class="py-12 px-4">
+    <h1 class="text-5xl text-center font-bold mb-12">Nuestros Juegos</h1>
+    <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <!-- Juego 1 -->
+      <div class="bg-gray-800 p-5 rounded-lg shadow-lg game-card cursor-pointer" onclick="mostrarJuego('juego1')">
+        <img src="assets/juegos/juego1.png" alt="Juego 1" class="mb-4 rounded-lg">
+        <h2 class="text-2xl font-semibold mb-1">Plantas Vs. Zombies Remade</h2>
+        <p class="mb-2 text-gray-300">Un remade necesario para un gran juego.</p>
+        <span class="text-sm text-gray-400 estado-badge">Estado: En desarrollo</span>
       </div>
 
-      <div class="bg-gray-800 p-4 rounded shadow-lg game-card" onclick="mostrarJuego('juego2')">
-        <img src="assets/juegos/juego2.png" alt="Juego 2" class="mb-4 w-full rounded">
-        <h2 class="text-2xl mb-2">Clicky & Yo</h2>
-        <p class="mb-2">Disponible el 18/12/2025.</p>
-        <p class="text-sm text-gray-400 estado-badge">Estado: Próximo lanzamiento</p>
+      <!-- Juego 2 -->
+      <div class="bg-gray-800 p-5 rounded-lg shadow-lg game-card cursor-pointer" onclick="mostrarJuego('juego2')">
+        <img src="assets/juegos/juego2.png" alt="Juego 2" class="mb-4 rounded-lg">
+        <h2 class="text-2xl font-semibold mb-1">Clicky & Yo</h2>
+        <p class="mb-2 text-gray-300">Disponible el 18/12/2025.</p>
+        <span class="text-sm text-gray-400 estado-badge">Estado: Próximo lanzamiento</span>
       </div>
     </div>
   </main>
 
+  <!-- Modal -->
   <div id="modal" class="modal hidden">
-    <div class="modal-content" id="modalContent">
-      <img id="modalImage" src="" alt="Imagen del juego">
+    <div class="modal-content text-white">
+      <img id="modalImage" src="" alt="Imagen del juego" />
       <div>
-        <h2 id="modalTitle"></h2>
-        <p id="modalDescription"></p>
-        <p id="modalStatus"></p>
-        <p id="modalRelease"></p>
-        <p id="modalAvailable"></p>
-        <button class="button" onclick="cerrarModal()">Cerrar</button>
+        <h2 id="modalTitle" class="text-3xl font-bold mb-2"></h2>
+        <p id="modalDescription" class="mb-2"></p>
+        <p id="modalStatus" class="mb-2 text-sm text-gray-400"></p>
+        <p id="modalRelease" class="mb-2 text-sm text-gray-400"></p>
+        <p id="modalAvailable" class="mb-4 text-sm text-gray-400"></p>
+        <button class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded mt-4" onclick="cerrarModal()">Cerrar</button>
       </div>
     </div>
   </div>
 
-  <footer class="bg-gray-900 text-center p-4 text-sm mt-10">© 2025 InfiniTech Studios</footer>
+  <footer class="bg-gray-900 text-center p-4 text-sm text-gray-400 mt-12">© 2025 InfiniTech Studios</footer>
 
   <script>
     const juegosData = {
@@ -178,11 +140,10 @@
       body.style.backgroundImage = data.fondo;
       body.style.backgroundSize = "cover";
       body.style.backgroundPosition = "center";
-      body.style.backgroundRepeat = "no-repeat";
 
-      const newFont = new FontFace('GameFont', data.fuente);
-      newFont.load().then((font) => {
-        document.fonts.add(font);
+      const font = new FontFace('GameFont', data.fuente);
+      font.load().then(f => {
+        document.fonts.add(f);
         body.style.fontFamily = 'GameFont, sans-serif';
       });
 
@@ -198,11 +159,8 @@
 
     function cerrarModal() {
       document.getElementById('modal').classList.add('hidden');
-      body.style.fontFamily = 'sans-serif';
       body.style.backgroundImage = fondoOriginal;
-      body.style.backgroundSize = "cover";
-      body.style.backgroundPosition = "center";
-      body.style.backgroundRepeat = "no-repeat";
+      body.style.fontFamily = 'sans-serif';
     }
   </script>
 </body>
