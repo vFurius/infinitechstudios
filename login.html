@@ -15,33 +15,24 @@
       background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(0,0,0,1));
       z-index: -1;
     }
-
-    .glow {
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-link:hover {
-      color: #f87171;
-      transition: color 0.3s ease;
-    }
   </style>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col">
+<body class="bg-black text-white min-h-screen flex flex-col font-sans">
 
-  <header class="p-6 flex justify-between items-center bg-gray-900 shadow-md">
+  <header class="backdrop-blur-sm bg-white/5 p-6 flex justify-between items-center rounded-b-xl shadow-lg shadow-white/10">
     <img src="assets/Logo.png" alt="Logo" class="h-12">
     <nav class="space-x-6 text-lg font-medium">
-      <a href="index.html" class="nav-link">Inicio</a>
-      <a href="juegos.html" class="nav-link">Juegos</a>
-      <a href="nosotros.html" class="nav-link">Nosotros</a>
-      <a href="noticias.html" class="nav-link">Noticias</a>
-      <a href="contacto.html" class="nav-link">Contacto</a>
-      <a href="login.html" class="nav-link">Login</a>
+      <a href="index.html" class="hover:text-red-400">Inicio</a>
+      <a href="juegos.html" class="hover:text-red-400">Juegos</a>
+      <a href="nosotros.html" class="hover:text-red-400">Nosotros</a>
+      <a href="noticias.html" class="hover:text-red-400">Noticias</a>
+      <a href="contacto.html" class="hover:text-red-400">Contacto</a>
+      <a href="login.html" class="hover:text-red-400">Login</a>
     </nav>
   </header>
 
   <main class="flex-grow flex items-center justify-center text-center p-6">
-    <div class="bg-gray-800 bg-opacity-60 rounded-xl p-10 max-w-lg w-full glow shadow-lg">
+    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-10 max-w-lg w-full shadow-lg shadow-white/10">
       <h1 class="text-4xl font-bold mb-6">Inicia sesión con Google</h1>
       <p class="mb-6 text-gray-300">Conectá tu cuenta para guardar tu progreso, estadísticas y logros.</p>
 
@@ -61,8 +52,6 @@
     </div>
   </main>
 
-  <footer class="bg-gray-900 text-center p-4 text-sm text-gray-400">
-    © 2025 InfiniTech Studios
-  </footer>
+  <footer class="text-center py-4 text-sm text-gray-500">© 2024-2025 InfiniTech Studios</footer>
 </body>
 </html>
