@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juegos - InfiniTech Studios</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -51,18 +51,24 @@
       width: 45%;
     }
 
+    .estado-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .estado-badge::before {
       content: "";
       width: 0.75rem;
       height: 0.75rem;
       border-radius: 9999px;
       background-color: #48bb78;
-      display: inline-block;
+      flex-shrink: 0;
     }
   </style>
 </head>
-<body class="bg-black text-white transition-all duration-500" id="juegosBody">
-  <header class="p-6 flex justify-between items-center bg-gray-900 shadow-md">
+<body class="bg-black text-white transition-all duration-500 font-sans" id="juegosBody">
+  <header class="backdrop-blur-sm bg-white/5 p-6 flex justify-between items-center rounded-b-xl shadow-lg shadow-white/10">
     <img src="assets/Logo.png" alt="Logo" class="h-12">
     <nav class="space-x-6 text-lg font-medium">
       <a href="index.html" class="hover:text-red-400">Inicio</a>
@@ -75,13 +81,13 @@
   </header>
 
   <main class="py-12 px-4">
-    <h1 class="text-5xl text-center font-bold mb-12">Nuestros Juegos</h1>
+    <h1 class="text-5xl text-center font-extrabold mb-12 tracking-tight">Nuestros Juegos</h1>
     <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
       <!-- Juego 1 -->
       <div class="game-card p-4 rounded-lg cursor-pointer" onclick="mostrarJuego('juego1')">
         <img src="assets/juegos/juego1.png" alt="Juego 1" class="mb-4 rounded">
         <h2 class="text-2xl font-bold mb-2">Plantas Vs. Zombies Remade</h2>
-        <p class="mb-2 text-lg text-gray-300">Un remade necesario para un gran juego.</p>
+        <p class="mb-2 text-lg text-gray-300 leading-relaxed">Un remade necesario para un gran juego.</p>
         <span class="text-sm text-gray-400 estado-badge">Estado: En desarrollo</span>
       </div>
 
@@ -89,7 +95,7 @@
       <div class="game-card p-4 rounded-lg cursor-pointer" onclick="mostrarJuego('juego2')">
         <img src="assets/juegos/juego2.png" alt="Juego 2" class="mb-4 rounded">
         <h2 class="text-2xl font-bold mb-2">Clicky & Yo</h2>
-        <p class="mb-2 text-lg text-gray-300">Disponible el 18/12/2025.</p>
+        <p class="mb-2 text-lg text-gray-300 leading-relaxed">Disponible el 18/12/2025.</p>
         <span class="text-sm text-gray-400 estado-badge">Estado: Próximo lanzamiento</span>
       </div>
     </div>
@@ -110,7 +116,7 @@
     </div>
   </div>
 
-  <footer class="bg-gray-900 text-center p-4 text-sm text-gray-400 mt-12">© 2025 InfiniTech Studios</footer>
+  <footer class="text-center py-4 text-sm text-gray-500 mt-12">© 2024-2025 InfiniTech Studios</footer>
 
   <script>
     const juegosData = {
@@ -157,7 +163,7 @@
       document.getElementById('modalRelease').innerText = `Lanzamiento: ${data.lanzamiento}`;
       document.getElementById('modalAvailable').innerText = `Disponible en: ${data.disponible}`;
       document.getElementById('modalImage').src = data.imagen;
-      
+
       document.getElementById('modal').classList.remove('hidden');
     }
 
