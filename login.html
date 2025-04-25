@@ -7,34 +7,23 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body class="bg-black text-white font-sans min-h-screen flex flex-col items-center justify-center px-4">
+<body class="bg-black text-white font-sans min-h-screen flex items-center justify-center px-4">
 
   <div class="bg-white/10 backdrop-blur-sm p-10 rounded-xl shadow-lg max-w-md w-full text-center border border-white/20">
     <img src="assets/Logo.png" alt="InfiniTech Studios Logo" class="mx-auto h-12 mb-6">
     <h1 class="text-3xl font-bold mb-4">Iniciar sesión</h1>
-    <p class="text-gray-400 mb-6">Usa tu cuenta de Google para comenzar</p>
-
-    <!-- Aquí se renderiza el botón -->
+    <p class="text-gray-400 mb-6">Usa tu cuenta de Google para continuar</p>
     <div id="googleButton" class="flex justify-center"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/jwt-decode.min.js"></script>
 
   <script>
-    function handleCredentialResponse(response) {
-      const data = jwt_decode(response.credential);
-      localStorage.setItem('googleUser', JSON.stringify({
-        name: data.name,
-        email: data.email,
-        picture: data.picture
-      }));
-      window.location.href = 'perfil.html';
-    }
-
     window.onload = function () {
       google.accounts.id.initialize({
         client_id: "422301004356-lliva958ejf4ecbc915plfulhdfluo4p.apps.googleusercontent.com",
-        callback: handleCredentialResponse
+        callback: handleCredentialResponse,
+        auto_select: true
       });
 
       google.accounts.id.renderButton(
@@ -42,14 +31,29 @@
         {
           theme: "outline",
           size: "large",
-          type: "standard",
-          shape: "rectangular",
-          text: "signin_with"
+          type: "standard"
         }
       );
 
       google.accounts.id.prompt();
     };
+
+    function handleCredentialResponse(response) {
+      try {
+        const data = jwt_decode(response.credential);
+
+        localStorage.setItem('googleUser', JSON.stringify({
+          name: data.name,
+          email: data.email,
+          picture: data.picture
+        }));
+
+        window.location.href = "perfil.html";
+      } catch (error) {
+        console.error("Error al procesar credencial:", error);
+        alert("Ocurrió un problema al iniciar sesión. Inténtalo nuevamente.");
+      }
+    }
   </script>
 </body>
 </html>
