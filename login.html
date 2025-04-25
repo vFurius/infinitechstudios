@@ -1,0 +1,48 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - InfiniTech Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.15), rgba(0,0,0,1));
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+  <header class="p-4 flex justify-between items-center bg-gray-900">
+    <img src="assets/Logo.png" alt="Logo" class="h-10">
+    <nav class="space-x-4">
+      <a href="index.html">Inicio</a>
+      <a href="juegos.html">Juegos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="flex items-center justify-center flex-grow p-6">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold mb-6">Inicia sesión con Google</h1>
+      <div id="g_id_onload"
+           data-client_id="TU_CLIENT_ID"
+           data-login_uri="/login-success"
+           data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="sign_in_with" data-size="large"></div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-900 text-center p-4 text-sm">© 2025 InfiniTech Studios</footer>
+</body>
+</html>
