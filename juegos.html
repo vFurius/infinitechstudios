@@ -8,10 +8,13 @@
   <style>
     .game-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid white;
+      background-color: #000;
     }
+
     .game-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
     }
 
     .modal {
@@ -40,6 +43,7 @@
       display: flex;
       flex-direction: row;
       gap: 2rem;
+      border: 2px solid white;
     }
 
     .modal-content img {
@@ -72,20 +76,20 @@
 
   <main class="py-12 px-4">
     <h1 class="text-5xl text-center font-bold mb-12">Nuestros Juegos</h1>
-    <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
       <!-- Juego 1 -->
-      <div class="bg-gray-800 p-5 rounded-lg shadow-lg game-card cursor-pointer" onclick="mostrarJuego('juego1')">
-        <img src="assets/juegos/juego1.png" alt="Juego 1" class="mb-4 rounded-lg">
-        <h2 class="text-2xl font-semibold mb-1">Plantas Vs. Zombies Remade</h2>
-        <p class="mb-2 text-gray-300">Un remade necesario para un gran juego.</p>
+      <div class="game-card p-4 rounded-lg cursor-pointer" onclick="mostrarJuego('juego1')">
+        <img src="assets/juegos/juego1.png" alt="Juego 1" class="mb-4 rounded">
+        <h2 class="text-2xl font-bold mb-2">Plantas Vs. Zombies Remade</h2>
+        <p class="mb-2 text-lg text-gray-300">Un remade necesario para un gran juego.</p>
         <span class="text-sm text-gray-400 estado-badge">Estado: En desarrollo</span>
       </div>
 
       <!-- Juego 2 -->
-      <div class="bg-gray-800 p-5 rounded-lg shadow-lg game-card cursor-pointer" onclick="mostrarJuego('juego2')">
-        <img src="assets/juegos/juego2.png" alt="Juego 2" class="mb-4 rounded-lg">
-        <h2 class="text-2xl font-semibold mb-1">Clicky & Yo</h2>
-        <p class="mb-2 text-gray-300">Disponible el 18/12/2025.</p>
+      <div class="game-card p-4 rounded-lg cursor-pointer" onclick="mostrarJuego('juego2')">
+        <img src="assets/juegos/juego2.png" alt="Juego 2" class="mb-4 rounded">
+        <h2 class="text-2xl font-bold mb-2">Clicky & Yo</h2>
+        <p class="mb-2 text-lg text-gray-300">Disponible el 18/12/2025.</p>
         <span class="text-sm text-gray-400 estado-badge">Estado: Próximo lanzamiento</span>
       </div>
     </div>
@@ -97,7 +101,7 @@
       <img id="modalImage" src="" alt="Imagen del juego" />
       <div>
         <h2 id="modalTitle" class="text-3xl font-bold mb-2"></h2>
-        <p id="modalDescription" class="mb-2"></p>
+        <p id="modalDescription" class="mb-2 text-lg"></p>
         <p id="modalStatus" class="mb-2 text-sm text-gray-400"></p>
         <p id="modalRelease" class="mb-2 text-sm text-gray-400"></p>
         <p id="modalAvailable" class="mb-4 text-sm text-gray-400"></p>
