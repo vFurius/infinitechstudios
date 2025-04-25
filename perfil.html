@@ -8,7 +8,6 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="bg-black text-white font-sans min-h-screen flex flex-col items-center justify-center px-4">
-
   <div class="bg-white/10 backdrop-blur-sm p-10 rounded-xl shadow-lg max-w-md w-full text-center border border-white/20">
     <img src="assets/Logo.png" alt="InfiniTech Studios Logo" class="mx-auto h-12 mb-6">
 
@@ -16,26 +15,28 @@
     <h2 id="userName" class="text-2xl font-bold mb-2">Usuario</h2>
     <p id="userEmail" class="text-gray-300 mb-6">correo@ejemplo.com</p>
 
-    <button onclick="cerrarSesion()" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded text-white font-semibold transition-all">
-      Cerrar sesión
-    </button>
+    <p class="text-green-400 mb-6 font-medium text-lg">¡Bienvenido a tu perfil!</p>
+
+    <div class="flex flex-col gap-3">
+      <a href="index.html" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded text-white font-semibold transition-all">Volver al inicio</a>
+      <a href="verperfil.html" class="bg-white/10 hover:bg-white/20 px-6 py-2 rounded text-white font-semibold border border-white/20">Ver perfil completo</a>
+      <button onclick="cerrarSesion()" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded text-white font-semibold transition-all">
+        Cerrar sesión
+      </button>
+    </div>
   </div>
 
-  <script>
-    const profile = JSON.parse(localStorage.getItem('googleUser'));
-    if (!profile) {
-      window.location.href = 'login.html';
-    } else {
-      document.getElementById('userName').innerText = profile.name;
-      document.getElementById('userEmail').innerText = profile.email;
-      document.getElementById('userImage').src = profile.picture;
-    }
+<script>
+  const profile = JSON.parse(localStorage.getItem('googleUser'));
+  if (!profile) window.location.href = 'login.html';
 
-    function cerrarSesion() {
-      google.accounts.id.disableAutoSelect();
-      localStorage.removeItem('googleUser');
-      window.location.href = 'login.html';
-    }
-  </script>
-</body>
-</html>
+  document.getElementById('userName').innerText = profile.name;
+  document.getElementById('userEmail').innerText = profile.email;
+  document.getElementById('userImage').src = profile.picture;
+
+  function cerrarSesion() {
+    google.accounts.id.disableAutoSelect();
+    localStorage.removeItem('googleUser');
+    window.location.href = 'login.html';
+  }
+</script>
