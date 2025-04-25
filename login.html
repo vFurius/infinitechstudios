@@ -3,55 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - InfiniTech Studios</title>
+  <title>Inicio de sesión - InfiniTech Studios</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <style>
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(0,0,0,1));
-      z-index: -1;
-    }
-  </style>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col font-sans">
+<body class="bg-black text-white font-sans min-h-screen flex flex-col items-center justify-center">
 
-  <header class="backdrop-blur-sm bg-white/5 p-6 flex justify-between items-center rounded-b-xl shadow-lg shadow-white/10">
-    <img src="assets/Logo.png" alt="Logo" class="h-12">
-    <nav class="space-x-6 text-lg font-medium">
-      <a href="index.html" class="hover:text-red-400">Inicio</a>
-      <a href="juegos.html" class="hover:text-red-400">Juegos</a>
-      <a href="nosotros.html" class="hover:text-red-400">Nosotros</a>
-      <a href="noticias.html" class="hover:text-red-400">Noticias</a>
-      <a href="contacto.html" class="hover:text-red-400">Contacto</a>
-      <a href="login.html" class="hover:text-red-400">Login</a>
-    </nav>
-  </header>
-
-  <main class="flex-grow flex items-center justify-center text-center p-6">
-    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-10 max-w-lg w-full shadow-lg shadow-white/10">
-      <h1 class="text-4xl font-bold mb-6">Inicia sesión con Google</h1>
-      <p class="mb-6 text-gray-300">Conectá tu cuenta para guardar tu progreso, estadísticas y logros.</p>
-
-      <div id="g_id_onload"
-        data-client_id="TU_CLIENT_ID"
-        data-login_uri="/login-success"
-        data-auto_prompt="false">
-      </div>
-
-      <div class="g_id_signin"
-        data-type="standard"
-        data-shape="pill"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-size="large">
-      </div>
+  <div class="bg-white/10 backdrop-blur-sm p-10 rounded-xl shadow-lg max-w-md text-center">
+    <h1 class="text-3xl font-bold mb-4">Iniciar sesión con Google</h1>
+    <div class="g_id_signin" 
+         data-type="standard" 
+         data-shape="rectangular" 
+         data-theme="outline" 
+         data-text="Iniciar sesión" 
+         data-logo_alignment="left" 
+         data-client_id="tu-client-id-real.apps.googleusercontent.com">
     </div>
-  </main>
+  </div>
 
-  <footer class="text-center py-4 text-sm text-gray-500">© 2024-2025 InfiniTech Studios</footer>
+  <script>
+    function handleCredentialResponse(response) {
+      const data = jwt_decode(response.credential);
+      localStorage.setItem('googleUser', JSON.stringify({
+        name: data.name,
+        email: data.email,
+        picture: data.picture
+      }));
+      window.location.href = 'perfil.html';
+    }
+
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "tu-client-id-real.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.prompt();
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/jwt-decode.min.js"></script>
 </body>
 </html>
