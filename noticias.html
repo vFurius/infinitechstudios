@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticias - InfiniTech Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .post-card {
+      border: 2px solid white;
+      background-color: #111;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    .modal-content {
+      background-color: #1f1f1f;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 800px;
+      width: 90%;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white font-sans min-h-screen flex flex-col">
+
+  <header class="backdrop-blur-sm bg-white/5 p-6 flex justify-between items-center rounded-b-xl shadow-lg shadow-white/10">
+    <img src="assets/Logo.png" alt="Logo" class="h-12">
+    <nav class="space-x-6 text-lg font-medium">
+      <a href="index.html" class="hover:text-red-400">Inicio</a>
+      <a href="juegos.html" class="hover:text-red-400">Juegos</a>
+      <a href="nosotros.html" class="hover:text-red-400">Nosotros</a>
+      <a href="noticias.html" class="hover:text-red-400">Noticias</a>
+      <a href="contacto.html" class="hover:text-red-400">Contacto</a>
+      <a href="login.html" class="hover:text-red-400">Login</a>
+    </nav>
+  </header>
+
+  <main class="flex-grow py-16 px-6 max-w-5xl mx-auto">
+    <h1 class="text-5xl font-bold mb-12 text-center">Foro de Noticias</h1>
+
+    <div class="space-y-8" id="postContainer">
+      <!-- Los posts se llenarán dinámicamente -->
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="modalTitle" class="text-3xl font-bold mb-4"></h2>
+      <p id="modalContent" class="text-gray-300 mb-6"></p>
+      <button class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg font-semibold" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <footer class="text-center py-4 text-sm text-gray-500">© 2024-2025 InfiniTech Studios</footer>
+
+  <script>
+    const posts = [
+      {
+        titulo: "🎉 ¡Anunciamos la fecha de lanzamiento de Clicky & Yo!",
+        contenido: "El esperado juego 'Clicky & Yo' estará disponible el 18/12/2025 en Steam. ¡Prepárate para la aventura definitiva!",
+      },
+      {
+        titulo: "🚧 PvZ Remade: ¡Demo en camino!",
+        contenido: "Nuestro remade de Plants vs. Zombies avanza rápido. Proximamente lanzaremos una demo para PC y dispositivos móviles.",
+      },
+      {
+        titulo: "🎨 Nuevo arte conceptual publicado",
+        contenido: "Mira los nuevos diseños de personajes y fondos para 'Clicky & Yo'. ¡Nos encantaría saber qué opinas!",
+      }
+    ];
+
+    const container = document.getElementById('postContainer');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+
+    posts.forEach((post, index) => {
+      const postElement = document.createElement('div');
+      postElement.className = 'post-card p-6 rounded-lg cursor-pointer';
+      postElement.innerHTML = `
+        <h2 class="text-2xl font-bold mb-2">${post.titulo}</h2>
+        <p class="text-gray-400 truncate">${post.contenido.substring(0, 100)}...</p>
+      `;
+      postElement.addEventListener('click', () => mostrarPost(index));
+      container.appendChild(postElement);
+    });
+
+    function mostrarPost(index) {
+      modalTitle.innerText = posts[index].titulo;
+      modalContent.innerText = posts[index].contenido;
+      modal.classList.remove('hidden');
+    }
+
+    function cerrarModal() {
+      modal.classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
