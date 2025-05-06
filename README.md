@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/public/Logo.png">
+  <img width="32" height="32" src="/public/Logo.png">
   <h1>InfiniTech Studios</h1>
 </div>
 
