@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.honk {
+  font-family: 'Honk';
+  font-variation-settings:
+    "MORF" 33,
+    "SHLN" 25;
+    
+}
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0 } 
+  to { opacity: 1 } 
+}
+
+.animate-fadeIn { 
+  animation: fadeIn .2s ease-in; 
+}

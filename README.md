@@ -1,1 +1,1 @@
-# infinitechstudios
+# InfiniTech Studios
