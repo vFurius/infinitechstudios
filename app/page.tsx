@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LoadingScreen from "@/components/LoadingScreen";
-import "./page.module.css";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
