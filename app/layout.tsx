@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: "InfiniTech Studios",
@@ -20,6 +21,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>
