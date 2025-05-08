@@ -16,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-AR">
-      <body
-        className="min-h-screen"
-      >
+      <body className="min-h-screen body-bg-blur">
         <Header />
         {children}
         <Toaster />
