@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-AR">
-      <body className="min-h-screen body-bg-blur">
+      <body className="min-h-screen">
         <Header />
         {children}
         <Toaster />
