@@ -7,7 +7,6 @@ interface Post {
   title: string;
   content: string;
   publicatedAt: string; 
-  imageUrl?: string;
 }
 
 const posts: Post[] = [
@@ -17,7 +16,6 @@ const posts: Post[] = [
     content: 
       "La Demo de Clicky & Yo ya esta disponible en ITCHIO.IO, ¡Prueba el juego y no olvides de dar sugerencias!",
     publicatedAt: "2025-05-09",
-    imageUrl: "/public/noticias/noticia4.png",
   },
   {
     id: 3,
@@ -68,14 +66,6 @@ const NoticiasPage: React.FC = () => {
             className="bg-white/10 p-4 rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out border border-white/0 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10"
             onClick={() => openModal(post.id)}
           >
-            {post.imageUrl && (
-              <img
-                src={post.imageUrl}
-                alt={post.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-            )}
-
             <h2 className="text-2xl font-semibold">{post.title}</h2>
             <p className="text-lg text-gray-400">
               {post.content.length > 58
@@ -118,13 +108,6 @@ const NoticiasPage: React.FC = () => {
         {modalOpen && selectedPost && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
             <div className="bg-[#1f1f1f] p-8 rounded-2xl flex flex-col border-2 border-white animate-fadeIn max-w-2xl lg:max-w-3xl">
-              {selectedPost.imageUrl && (
-                <img
-                  src={selectedPost.imageUrl}
-                  alt={selectedPost.title}
-                  className="w-full h-64 object-cover rounded-md mb-4"
-                />
-              )}
               <h2 className="text-2xl lg:text-4xl font-bold mb-4 text-pretty">
                 {selectedPost.title}
               </h2>
