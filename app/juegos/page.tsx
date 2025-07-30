@@ -142,7 +142,6 @@ export default function Page() {
 
     if (selectedGame) {
       try {
-        // Para juegos secretos, usar el fondo negro degradado
         if (selectedGame.estado === "No revelado") {
           body.style.background = selectedGame.fondo
           body.style.backgroundImage = ""
@@ -153,7 +152,6 @@ export default function Page() {
         body.style.backgroundSize = "cover"
         body.style.backgroundPosition = "center"
 
-        // Load font with error handling
         if (selectedGame.fuente) {
           const font = new FontFace("GameFont", `url(${selectedGame.fuente})`)
           font
@@ -163,13 +161,13 @@ export default function Page() {
               body.style.fontFamily = "GameFont, system-ui"
             })
             .catch(() => {
-              // Fallback to system font if custom font fails
+            
               body.style.fontFamily = "system-ui"
             })
         }
       } catch (error) {
         console.warn("Error applying game theme:", error)
-        // Fallback to default styling
+
         body.style.fontFamily = "system-ui"
       }
     } else {
@@ -252,7 +250,6 @@ export default function Page() {
                   alt={game.titulo}
                   className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                   onError={(e) => {
-                    // Fallback to placeholder if image fails to load
                     const target = e.target as HTMLImageElement
                     target.src = "/placeholder.svg?height=300&width=400"
                   }}

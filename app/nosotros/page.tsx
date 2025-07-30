@@ -18,7 +18,7 @@ export default function NosotrosPage() {
         "Plataforma web completa para la tradicional fábrica de pastas Santa Rita. Incluye catálogo de productos, sistema de pedidos online, información nutricional y ubicaciones de puntos de venta. Diseño elegante que refleja la calidad artesanal de sus productos.",
       imagen: "/proyectos/santa-rita-logo.png",
       estado: "Activo",
-      url: null, // Próximamente
+      url: null, // Por ahora sin enlace
     },
     {
       nombre: "Clicky & Yo",
@@ -42,7 +42,7 @@ export default function NosotrosPage() {
       avatar: "/placeholder.svg?height=150&width=150&text=Axel",
     },
     {
-      nombre: "Gonzalo", // Espero que no te moleste que te haya puesto aca gonza JAJA, cualquier cosa eliminate o modifica lo que quieras. ¡Gracias por todo!
+      nombre: "Gonzalo",
       rol: "Desarrollador Web",
       descripcion:
         "Desarrollador full-stack especializado en tecnologías web modernas y streaming de contenido técnico. Creador original de esta página web de InfiniTech Studios.",
@@ -57,7 +57,7 @@ export default function NosotrosPage() {
   return (
     <main className="min-h-screen py-8">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header */}
+        {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-red-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
             Sobre Nosotros
@@ -80,7 +80,7 @@ export default function NosotrosPage() {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center p-6 bg-gradient-to-br from-gray-800/40 to-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-600/30">
             <div className="text-3xl font-bold text-red-400 mb-2">2+</div>
@@ -100,7 +100,7 @@ export default function NosotrosPage() {
           </div>
         </div>
 
-        {/* Proyectos Web */}
+        {/* Proyectos Web Section */}
         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Nuestros Proyectos Web</h2>
@@ -159,7 +159,7 @@ export default function NosotrosPage() {
           </div>
         </div>
 
-        {/* Equipo */}
+        {/* Team Section */}
         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Nuestro Equipo</h2>
@@ -260,7 +260,7 @@ export default function NosotrosPage() {
           </div>
         </div>
 
-        {/* Servicios */}
+        {/* Services Section */}
         <div className="text-center bg-gradient-to-r from-gray-800/50 to-gray-900/70 backdrop-blur-sm rounded-3xl p-12 border border-gray-600/30 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">¿Qué Ofrecemos?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

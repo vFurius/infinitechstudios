@@ -193,10 +193,10 @@ const NoticiasPage: React.FC = () => {
         </p>
       </div>
 
-      {/* Busquedas Con Filtros */}
+      {/* Search and Filters */}
       <div className="mb-12">
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-          {/* Barra busqueda */}
+          {/* Search Bar */}
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -208,7 +208,7 @@ const NoticiasPage: React.FC = () => {
             />
           </div>
 
-          {/* Categorias y Filtros */}
+          {/* Category Filters */}
           <div className="flex flex-wrap gap-2">
             {Object.entries(categories).map(([key, category]) => {
               const Icon = category.icon
@@ -232,7 +232,7 @@ const NoticiasPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Posts Importantes/destacados */}
+      {/* Featured Posts */}
       {selectedCategory === "all" && featuredPosts.length > 0 && (
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-white flex items-center gap-3">
@@ -294,7 +294,7 @@ const NoticiasPage: React.FC = () => {
         </div>
       )}
 
-      {/* Posts Normales */}
+      {/* Regular Posts */}
       <div className="space-y-8">
         {selectedCategory !== "all" && (
           <h2 className="text-3xl font-bold text-white flex items-center gap-3">
@@ -369,7 +369,7 @@ const NoticiasPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Sin resultados */}
+      {/* No Results */}
       {filteredPosts.length === 0 && (
         <div className="text-center py-16">
           <div className="w-24 h-24 bg-gray-800/60 rounded-full flex items-center justify-center mx-auto mb-6">

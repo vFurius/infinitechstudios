@@ -11,7 +11,6 @@ const phrases = [
   '¡InfiniTech Studios en acción!'
 ];
 
-// Variants para inicial, animar y salir
 const variants = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
