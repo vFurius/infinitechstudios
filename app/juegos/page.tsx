@@ -476,7 +476,7 @@ export default function Page() {
       {/* Easter egg */}
       {!pokemonMode && (
         <div className="text-center mt-8">
-          <p className="text-xs text-gray-500 opacity-50">💡 Tip: Try typing something on your keyboard...</p>
+          <p className="text-xs text-gray-500 opacity-50">💡 Tip: Intenta escribir algo en tu teclado...</p>
         </div>
       )}
 
