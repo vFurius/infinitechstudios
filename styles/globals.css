@@ -168,6 +168,10 @@
   animation: horror-bg-glitch 16s ease-in-out infinite;
 }
 
+.horror-mode .flash-effect {
+  animation: none;
+}
+
 @keyframes horror-bg-glitch {
   0% {
     background-position: 0% 50%;
