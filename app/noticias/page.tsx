@@ -25,14 +25,16 @@ const NoticiasPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [currentTime, setCurrentTime] = useState(new Date())
 
+  // Actualizar el tiempo cada minuto para mantener las fechas en tiempo real
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date())
-    }, 60000)
+    }, 60000) // Actualizar cada minuto
 
     return () => clearInterval(timer)
   }, [])
 
+  // Generar fechas dinámicas basadas en la fecha actual
   const generateDynamicDate = (hoursAgo: number) => {
     const date = new Date(currentTime)
     date.setHours(date.getHours() - hoursAgo)
@@ -47,7 +49,7 @@ const NoticiasPage: React.FC = () => {
         "¡Hemos renovado completamente nuestra página web con un diseño moderno, nuevas funcionalidades y una experiencia de usuario mejorada!\n\n🎨 **Diseño Visual Renovado:**\n• Nuevo header fijo con navegación mejorada y efectos de hover\n• Fondo dinámico personalizable en la página principal\n• Gradientes modernos y efectos de cristal (glassmorphism)\n• Paleta de colores actualizada con mejor contraste\n• Animaciones suaves y transiciones fluidas\n• Diseño completamente responsivo para todos los dispositivos\n\n🚀 **Nuevas Funcionalidades:**\n• Sección de noticias completamente renovada con búsqueda y filtros\n• Sistema de categorización inteligente\n• Selector de monedas en la tienda web (ARS, USD, EUR, BRL, MXN, COP)\n• Páginas de juegos con modales interactivos y información detallada\n• Sistema de tags para mejor organización del contenido\n• Funcionalidad de compartir en redes sociales\n\n💼 **Servicios Expandidos:**\n• Nueva sección InfiniTech Web con planes de desarrollo web\n• Calculadora de precios automática con conversión de monedas\n• Página de servicios profesionales con portfolios\n• Formulario de contacto mejorado con validación avanzada\n\n🎮 **Sección de Juegos Mejorada:**\n• Nuevos juegos añadidos incluyendo el misterioso 'Eco Shift'\n• Sistema de estados dinámicos (En desarrollo, Próximo lanzamiento, etc.)\n• Información detallada de cada proyecto con características y plataformas\n• Integración con itch.io para demos disponibles\n• Efectos especiales para juegos no revelados\n\n👥 **Página Nosotros Actualizada:**\n• Perfiles detallados del equipo con redes sociales\n• Estadísticas en tiempo real de proyectos\n• Galería de proyectos web realizados\n• Historia y filosofía del estudio\n\n⚡ **Optimizaciones Técnicas:**\n• Carga más rápida con optimización de imágenes\n• SEO mejorado para mejor visibilidad\n• Accesibilidad web siguiendo estándares WCAG\n• Integración con Google Analytics\n• Hosting optimizado con Vercel\n• Fuentes personalizadas cargadas eficientemente\n\nEsta renovación representa nuestro compromiso continuo con la excelencia y la innovación. Queremos que nuestra comunidad tenga la mejor experiencia posible al explorar nuestros proyectos y servicios.\n\n¡Explora todas las nuevas funcionalidades y déjanos saber qué te parece en nuestras redes sociales!",
       excerpt:
         "Renovación completa de la web con diseño moderno, nuevas funcionalidades, servicios expandidos y experiencia de usuario mejorada.",
-      publicatedAt: generateDynamicDate(2),
+      publicatedAt: generateDynamicDate(2), // Hace 2 horas
       category: "update",
       tags: ["Website", "Renovación", "UI/UX", "Funcionalidades", "Diseño"],
       readTime: 5,
@@ -61,7 +63,7 @@ const NoticiasPage: React.FC = () => {
         "Hemos revelado oficialmente el nombre de nuestro próximo gran proyecto: Eco Shift. Aunque los detalles siguen siendo un misterio, podemos confirmar que será una experiencia completamente nueva que desafiará las expectativas de los jugadores.\n\nEl arte pixel que hemos mostrado es solo una pequeña muestra de la atmósfera única que estamos creando. Eco Shift promete ser algo especial, combinando elementos que nunca antes hemos explorado.\n\nEl juego utilizará la fuente personalizada DePixelSchmal para crear una estética retro única que complementa perfectamente el arte pixel. Cada detalle visual ha sido cuidadosamente diseñado para sumergir al jugador en un mundo completamente nuevo.\n\n¡Mantente atento para más revelaciones en las próximas semanas!",
       excerpt:
         "Revelamos oficialmente Eco Shift, nuestro misterioso nuevo proyecto con arte pixel único y fuente personalizada.",
-      publicatedAt: generateDynamicDate(8),
+      publicatedAt: generateDynamicDate(8), // Hace 8 horas
       category: "desarrollo",
       tags: ["Eco Shift", "Pixel Art", "Misterio", "DePixelSchmal"],
       readTime: 2,
@@ -74,7 +76,7 @@ const NoticiasPage: React.FC = () => {
       content:
         "La Demo de Clicky & Yo ya está disponible en ITCH.IO, ¡Prueba el juego y no olvides de dar sugerencias!\n\nEsta nueva versión incluye:\n• Mejoras en la interfaz de usuario\n• Nuevas animaciones para Clicky\n• Sistema de guardado mejorado\n• Corrección de bugs reportados por la comunidad\n• Nuevos diálogos y contenido\n• Optimización de rendimiento\n• Nuevos efectos de sonido\n\nTu feedback es invaluable para nosotros. Cada comentario, sugerencia y reporte de bug nos ayuda a hacer de Clicky & Yo una experiencia mejor. La comunidad ha sido increíblemente receptiva y sus aportes han sido fundamentales para el desarrollo.\n\nLa demo está disponible gratuitamente y representa aproximadamente 30 minutos de gameplay del juego completo.",
       excerpt: "La versión Alpha 0.6 de Clicky & Yo está disponible con mejoras significativas y nuevo contenido.",
-      publicatedAt: generateDynamicDate(144),
+      publicatedAt: generateDynamicDate(144), // Hace 6 días
       category: "update",
       tags: ["Clicky & Yo", "Demo", "Alpha", "itch.io"],
       readTime: 3,
@@ -86,7 +88,7 @@ const NoticiasPage: React.FC = () => {
       content:
         "El esperado juego 'Clicky & Yo' estará disponible el 18/12/2025 en Steam. ¡Prepárate para la aventura definitiva!\n\nDespués de meses de desarrollo intensivo, finalmente podemos confirmar la fecha oficial de lanzamiento. Clicky & Yo llegará a Steam el 18 de diciembre de 2025, justo a tiempo para las fiestas navideñas.\n\nEste juego representa todo lo que hemos aprendido como desarrolladores indie. Una historia emotiva, mecánicas innovadoras y un personaje que se quedará en tu corazón para siempre.\n\nEl juego incluirá:\n• Historia principal de 8-10 horas\n• Múltiples finales basados en tus decisiones\n• Banda sonora original compuesta exclusivamente para el juego\n• Arte único que evoluciona con la narrativa\n• Mecánicas de clicker innovadoras\n• Logros de Steam y cartas coleccionables\n\n¡Añádelo a tu wishlist en Steam y sé parte de esta increíble aventura!",
       excerpt: "Clicky & Yo llegará a Steam el 18 de diciembre de 2025. ¡Marca tu calendario!",
-      publicatedAt: generateDynamicDate(264),
+      publicatedAt: generateDynamicDate(264), // Hace 11 días
       category: "lanzamiento",
       tags: ["Clicky & Yo", "Steam", "Lanzamiento", "Fecha"],
       readTime: 3,
@@ -98,7 +100,7 @@ const NoticiasPage: React.FC = () => {
       content:
         "Nuestro remade de Plants vs. Zombies avanza a pasos agigantados. Próximamente lanzaremos una demo para PC y dispositivos móviles.\n\nNovedades en desarrollo:\n• 15 nuevas plantas con habilidades únicas\n• Sistema de clima dinámico que afecta el gameplay\n• Modo cooperativo local y online para hasta 4 jugadores\n• Nuevos tipos de zombies con mecánicas innovadoras\n• Gráficos completamente remasterizados en HD\n• Banda sonora original inspirada en el clásico\n• Sistema de progresión y desbloqueos\n• Modo supervivencia infinito\n• Desafíos diarios con recompensas\n• Integración con Steam Workshop para mods\n\nLa demo incluirá los primeros 5 niveles del modo aventura y una muestra del modo cooperativo. Hemos trabajado intensamente para mantener la esencia del juego original mientras añadimos elementos modernos que enriquecen la experiencia.\n\n¡Esperamos que la disfruten tanto como nosotros disfrutamos creándola!",
       excerpt: "Grandes avances en PvZ Remade con nuevas plantas, zombies y modo cooperativo. Demo próximamente.",
-      publicatedAt: generateDynamicDate(384),
+      publicatedAt: generateDynamicDate(384), // Hace 16 días
       category: "desarrollo",
       tags: ["PvZ Remade", "Demo", "Cooperativo", "HD", "Steam"],
       readTime: 4,
@@ -109,7 +111,7 @@ const NoticiasPage: React.FC = () => {
       content:
         "Mira los nuevos diseños de personajes y fondos para nuestros proyectos. ¡Nos encantaría saber qué opinas!\n\nHemos estado trabajando intensamente en el apartado visual de nuestros juegos. Nuestro equipo de arte ha creado conceptos increíbles que definen la identidad visual de cada proyecto.\n\nPara Clicky & Yo, hemos desarrollado un estilo único que combina elementos nostálgicos con toques modernos. Cada escenario cuenta una historia y cada personaje tiene su propia personalidad visual. El proceso creativo incluye:\n• Bocetos iniciales a mano\n• Digitalización y refinamiento\n• Pruebas de color y iluminación\n• Animaciones de prueba\n• Feedback del equipo y ajustes finales\n\nEn PvZ Remade, respetamos la esencia del original mientras añadimos detalles que aprovechan las capacidades gráficas actuales. Cada planta y zombie ha sido rediseñado manteniendo su personalidad característica.\n\n¿Qué opinas de nuestro enfoque artístico? ¡Déjanos tus comentarios en nuestras redes sociales!",
       excerpt: "Revelamos nuevo arte conceptual y el proceso creativo detrás de nuestros juegos.",
-      publicatedAt: generateDynamicDate(504),
+      publicatedAt: generateDynamicDate(504), // Hace 21 días
       category: "desarrollo",
       tags: ["Arte Conceptual", "Diseño", "Fondos Nuevos", "Proceso Creativo"],
       readTime: 3,
@@ -120,7 +122,7 @@ const NoticiasPage: React.FC = () => {
       content:
         "Conoce más sobre nuestra filosofía como estudio indie y los emocionantes proyectos que vienen en camino.\n\nDesde nuestros humildes comienzos, InfiniTech Studios ha crecido con una visión clara: crear experiencias de juego que conecten emocionalmente con los jugadores.\n\nNo somos solo desarrolladores, somos contadores de historias. Cada juego que creamos lleva una parte de nosotros, nuestras experiencias y nuestros sueños. Creemos firmemente que los mejores juegos nacen de la pasión genuina, no solo de la técnica.\n\nNuestro lema 'Grandes ideas, desde un pequeño lugar' refleja nuestra creencia de que no necesitas un gran estudio para crear grandes experiencias. Con pasión, dedicación y mucha creatividad, cualquier idea puede convertirse en algo extraordinario.\n\nNuestros valores fundamentales:\n• Innovación constante en gameplay y narrativa\n• Respeto por la comunidad y feedback constructivo\n• Calidad sobre cantidad en cada proyecto\n• Transparencia en nuestro proceso de desarrollo\n• Accesibilidad para todos los tipos de jugadores\n\nEl futuro nos emociona. Tenemos varios proyectos en diferentes etapas de desarrollo, cada uno único en su propuesta. Desde remakes nostálgicos hasta conceptos completamente originales.\n\n¡Gracias por acompañarnos en este viaje increíble!",
       excerpt: "Conoce la filosofía y visión de InfiniTech Studios como desarrollador indie.",
-      publicatedAt: generateDynamicDate(624),
+      publicatedAt: generateDynamicDate(624), // Hace 26 días
       category: "comunidad",
       tags: ["InfiniTech", "Filosofía", "Indie", "Comunidad", "Valores"],
       readTime: 4,

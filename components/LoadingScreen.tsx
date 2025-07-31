@@ -1,32 +1,32 @@
-'use client';
+"use client"
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const phrases = [
-  'Preparando los juegos...',
-  'Cargando mundos increíbles...',
-  'Afinando los controles...',
-  'Desplegando aventuras...',
-  '¡InfiniTech Studios en acción!'
-];
+  "Preparando los juegos...",
+  "Cargando mundos increíbles...",
+  "Afinando los controles...",
+  "Desplegando aventuras...",
+  "¡InfiniTech Studios en acción!",
+]
 
 const variants = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
-  exit:    { opacity: 0, y: -50 }
-};
+  exit: { opacity: 0, y: -50 },
+}
 
 export default function LoadingScreen() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setIndex(prev => (prev + 1) % phrases.length);
-    }, 2000);
+      setIndex((prev) => (prev + 1) % phrases.length)
+    }, 2000)
 
-    return () => clearInterval(intervalId);
-  }, []);
+    return () => clearInterval(intervalId)
+  }, [])
 
   return (
     <AnimatePresence mode="wait">
@@ -46,5 +46,5 @@ export default function LoadingScreen() {
         </motion.h2>
       </motion.div>
     </AnimatePresence>
-  );
+  )
 }

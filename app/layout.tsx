@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "InfiniTech Studios",
   description:
     "Somos un equipo independiente apasionado por crear videojuegos que inspiran, entretienen y dejan huella. Nuestro objetivo es dar vida a ideas originales y reinventar clásicos con una perspectiva moderna.",
-    generator: 'v0.dev'
+    generator: 'Vercel'
 }
 
 export default function RootLayout({
@@ -26,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-AR" className={honk.variable}>
-      <body className="min-h-screen">
+      <body
+        className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen"
+        style={{ paddingTop: "80px" }}
+      >
         <Header />
         <main className="min-h-screen">{children}</main>
         <Toaster />

@@ -37,7 +37,6 @@ export default function Header() {
           <span className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">InfiniTech</span>
         </Link>
 
-        {/* Botón del menú móvil */}
         <button
           className="md:hidden text-white hover:text-red-400 transition-colors p-2"
           onClick={toggleMenu}
@@ -46,7 +45,6 @@ export default function Header() {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Menú de navegación (escritorio) */}
         <nav className="hidden md:flex space-x-6 text-base font-medium" aria-label="Navegación principal">
           {navLinks.map(({ href, label }) => (
             <Link
@@ -61,7 +59,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Menú móvil */}
       {isOpen && (
         <nav
           className="w-full p-4 flex flex-col space-y-4 text-base font-medium md:hidden text-center bg-black/60 backdrop-blur-sm rounded-2xl mt-4 border border-gray-700/50"
