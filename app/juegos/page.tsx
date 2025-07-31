@@ -150,8 +150,10 @@ export default function Page() {
     try {
       const audio = new Audio(`/sounds/${soundName}.wav`)
       audio.volume = 0.7
-      audio.play().catch(() => {})
-    } catch (error) {}
+      audio.play().catch(() => {
+      })
+    } catch (error) {
+    }
   }
 
   const activatePokemonMode = async () => {
@@ -331,6 +333,7 @@ export default function Page() {
 
   return (
     <section className={`min-h-screen py-8 ${horrorMode ? "horror-theme" : ""}`}>
+      {/* Pokeball Animation */}
       {showPokeball && (
         <div className="fixed inset-0 z-50 pointer-events-none">
           <div className="pokeball-falling">
@@ -339,6 +342,7 @@ export default function Page() {
         </div>
       )}
 
+      {/* Flash Effect */}
       {showFlash && <div className="fixed inset-0 z-50 bg-white flash-effect pointer-events-none"></div>}
 
       <div className="text-center mb-12">
@@ -376,6 +380,7 @@ export default function Page() {
             >
               {!isRevealed && !isHorrorGame && (
                 <>
+                  {/* Overlay secret xd */}
                   <div className="absolute inset-0 secret-game-overlay rounded-2xl z-10"></div>
                   <div className="absolute top-4 right-4 z-20 bg-gray-700/80 text-white px-3 py-1 rounded-full text-sm flex items-center gap-2 backdrop-blur-sm">
                     <Lock className="w-3 h-3" />
@@ -468,6 +473,7 @@ export default function Page() {
         })}
       </main>
 
+      {/* Easter egg */}
       {!pokemonMode && (
         <div className="text-center mt-8">
           <p className="text-xs text-gray-500 opacity-50">💡 Tip: Try typing something on your keyboard...</p>
