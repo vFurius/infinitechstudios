@@ -165,54 +165,6 @@
   background: linear-gradient(135deg, #000000, #330000, #660000, #990000, #cc0000, #000000);
   background-size: 600% 600%;
   background-attachment: fixed;
-  animation: horror-bg-glitch 12s ease-in-out infinite;
-}
-
-@keyframes horror-bg-glitch {
-  0% {
-    background-position: 0% 50%;
-    filter: hue-rotate(0deg) contrast(1);
-  }
-  10% {
-    background-position: 100% 0%;
-    filter: hue-rotate(10deg) contrast(1.2);
-  }
-  20% {
-    background-position: 0% 100%;
-    filter: hue-rotate(-10deg) contrast(0.8);
-  }
-  30% {
-    background-position: 100% 50%;
-    filter: hue-rotate(20deg) contrast(1.5);
-  }
-  40% {
-    background-position: 50% 0%;
-    filter: hue-rotate(-20deg) contrast(0.6);
-  }
-  50% {
-    background-position: 0% 50%;
-    filter: hue-rotate(30deg) contrast(1.8);
-  }
-  60% {
-    background-position: 100% 100%;
-    filter: hue-rotate(-30deg) contrast(0.4);
-  }
-  70% {
-    background-position: 50% 50%;
-    filter: hue-rotate(40deg) contrast(2);
-  }
-  80% {
-    background-position: 0% 0%;
-    filter: hue-rotate(-40deg) contrast(0.2);
-  }
-  90% {
-    background-position: 100% 50%;
-    filter: hue-rotate(50deg) contrast(1.5);
-  }
-  100% {
-    background-position: 0% 50%;
-    filter: hue-rotate(0deg) contrast(1);
-  }
 }
 
 .pokeball-falling {
