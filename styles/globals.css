@@ -158,7 +158,7 @@
   background: linear-gradient(135deg, #000000, #330000, #660000, #990000, #cc0000, #000000) !important;
   background-size: 600% 600% !important;
   background-attachment: fixed !important;
-  animation: horror-bg-glitch 12s ease-in-out infinite !important;
+  animation: horror-bg-glitch 5s ease-in-out infinite !important;
 }
 
 .horror-theme {
@@ -227,7 +227,7 @@
 
 .horror-card {
   box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), inset 0 0 20px rgba(255, 0, 0, 0.1);
-  animation: horror-pulse-intense 4s ease-in-out infinite, horror-shake 6s ease-in-out infinite;
+  animation: horror-pulse-intense 3s ease-in-out infinite, horror-shake 3s ease-in-out infinite;
   border: 2px solid rgba(255, 0, 0, 0.6);
 }
 
@@ -265,7 +265,7 @@
 
 .horror-image {
   filter: contrast(1.5) saturate(0.5) hue-rotate(15deg) brightness(0.8);
-  animation: horror-flicker-intense 6s ease-in-out infinite;
+  animation: horror-flicker-intense 3s ease-in-out infinite;
 }
 
 @keyframes horror-flicker-intense {
@@ -284,7 +284,7 @@
 
 .horror-text {
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6);
-  animation: horror-text-glow-intense 6s ease-in-out infinite alternate, horror-text-glitch 6s ease-in-out infinite;
+  animation: horror-text-glow-intense 3s ease-in-out infinite alternate, horror-text-glitch 3s ease-in-out infinite;
 }
 
 @keyframes horror-text-glow-intense {
@@ -334,7 +334,7 @@
 
 .glitch-text {
   position: relative;
-  animation: glitch-intense 6s infinite;
+  animation: glitch-intense 3s infinite;
 }
 
 @keyframes glitch-intense {
