@@ -141,7 +141,7 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.5s ease-in;
+  animation: fadeIn .5s ease-in;
 }
 
 .secret-game-overlay {
@@ -158,18 +158,14 @@
   background: linear-gradient(135deg, #000000, #330000, #660000, #990000, #cc0000, #000000) !important;
   background-size: 600% 600% !important;
   background-attachment: fixed !important;
-  animation: horror-bg-glitch 16s ease-in-out infinite !important;
+  animation: horror-bg-glitch 12s ease-in-out infinite !important;
 }
 
 .horror-theme {
   background: linear-gradient(135deg, #000000, #330000, #660000, #990000, #cc0000, #000000);
   background-size: 600% 600%;
   background-attachment: fixed;
-  animation: horror-bg-glitch 16s ease-in-out infinite;
-}
-
-.horror-mode .flash-effect {
-  animation: none;
+  animation: horror-bg-glitch 12s ease-in-out infinite;
 }
 
 @keyframes horror-bg-glitch {
@@ -224,7 +220,7 @@
   top: -150px;
   left: 50%;
   transform: translateX(-50%);
-  animation: pokeball-fall 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: pokeball-fall 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 1000;
 }
 
@@ -235,7 +231,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: pokeball-spin 6s ease-out;
+  animation: pokeball-spin 3s ease-out;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
@@ -274,7 +270,7 @@
 }
 
 .flash-effect {
-  animation: flash 6s ease-out;
+  animation: flash 3s ease-out;
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
@@ -342,7 +338,7 @@
 
 .horror-image {
   filter: contrast(1.5) saturate(0.5) hue-rotate(15deg) brightness(0.8);
-  animation: horror-flicker-intense 10s ease-in-out infinite;
+  animation: horror-flicker-intense 6s ease-in-out infinite;
 }
 
 @keyframes horror-flicker-intense {
@@ -361,7 +357,7 @@
 
 .horror-text {
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6);
-  animation: horror-text-glow-intense 10s ease-in-out infinite alternate, horror-text-glitch 10s ease-in-out infinite;
+  animation: horror-text-glow-intense 6s ease-in-out infinite alternate, horror-text-glitch 6s ease-in-out infinite;
 }
 
 @keyframes horror-text-glow-intense {
@@ -395,7 +391,7 @@
 
 .horror-modal {
   box-shadow: 0 0 80px rgba(255, 0, 0, 0.6), inset 0 0 50px rgba(255, 0, 0, 0.2);
-  animation: horror-modal-pulse-intense 2.5s ease-in-out infinite;
+  animation: horror-modal-pulse-intense 2s ease-in-out infinite;
   border: 3px solid rgba(255, 0, 0, 0.7);
 }
 
@@ -411,7 +407,7 @@
 
 .glitch-text {
   position: relative;
-  animation: glitch-intense 10s infinite;
+  animation: glitch-intense 6s infinite;
 }
 
 @keyframes glitch-intense {
@@ -464,7 +460,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  animation: glitch-layer-intense 4s infinite;
+  animation: glitch-layer-intense 2s infinite;
 }
 
 .glitch-layer:nth-child(1) {
@@ -474,13 +470,13 @@
 
 .glitch-layer:nth-child(2) {
   color: #00ff00;
-  animation-delay: 4s;
+  animation-delay: 3s;
   opacity: 0.8;
 }
 
 .glitch-layer:nth-child(3) {
   color: #0000ff;
-  animation-delay: 4s;
+  animation-delay: 3s;
   opacity: 0.6;
 }
 
