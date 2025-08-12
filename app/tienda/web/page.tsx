@@ -16,7 +16,7 @@ const monedas = {
 const planesBase = [
   {
     nombre: "Básico",
-    precioARS: 10000,
+    precioARS: 100000,
     descripcion: "Perfecto para pequeños negocios y proyectos personales",
     caracteristicas: [
       "Diseño responsivo moderno",
@@ -33,7 +33,7 @@ const planesBase = [
   },
   {
     nombre: "Profesional",
-    precioARS: 30000,
+    precioARS: 300000,
     descripcion: "Ideal para empresas que buscan una presencia digital sólida",
     caracteristicas: [
       "Todo lo del plan Básico",
@@ -52,7 +52,7 @@ const planesBase = [
   },
   {
     nombre: "Premium",
-    precioARS: 50000,
+    precioARS: 500000,
     descripcion: "La solución completa para empresas ambiciosas",
     caracteristicas: [
       "Todo lo del plan Profesional",
