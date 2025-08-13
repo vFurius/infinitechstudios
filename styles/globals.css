@@ -131,6 +131,84 @@
     "Noto Color Emoji";
 }
 
+/* New animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.delay-2000 {
+  animation-delay: 2000ms;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -141,7 +219,7 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn .5s ease-in;
+  animation: fadeIn .2s ease-in;
 }
 
 .secret-game-overlay {
@@ -158,13 +236,65 @@
   background: linear-gradient(135deg, #000000, #330000, #660000, #990000, #cc0000, #000000) !important;
   background-size: 600% 600% !important;
   background-attachment: fixed !important;
-  animation: horror-bg-glitch 5s ease-in-out infinite !important;
+  animation: horror-bg-glitch 8s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: -1 !important;
 }
 
 .horror-theme {
   background: linear-gradient(135deg, #000000, #330000, #660000, #990000, #cc0000, #000000);
   background-size: 600% 600%;
   background-attachment: fixed;
+  animation: horror-bg-glitch 8s ease-in-out infinite;
+  position: relative;
+  z-index: -1;
+}
+
+@keyframes horror-bg-glitch {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) contrast(1);
+  }
+  10% {
+    background-position: 100% 0%;
+    filter: hue-rotate(10deg) contrast(1.2);
+  }
+  20% {
+    background-position: 0% 100%;
+    filter: hue-rotate(-10deg) contrast(0.8);
+  }
+  30% {
+    background-position: 100% 50%;
+    filter: hue-rotate(20deg) contrast(1.5);
+  }
+  40% {
+    background-position: 50% 0%;
+    filter: hue-rotate(-20deg) contrast(0.6);
+  }
+  50% {
+    background-position: 0% 50%;
+    filter: hue-rotate(30deg) contrast(1.8);
+  }
+  60% {
+    background-position: 100% 100%;
+    filter: hue-rotate(-30deg) contrast(0.4);
+  }
+  70% {
+    background-position: 50% 50%;
+    filter: hue-rotate(40deg) contrast(2);
+  }
+  80% {
+    background-position: 0% 0%;
+    filter: hue-rotate(-40deg) contrast(0.2);
+  }
+  90% {
+    background-position: 100% 50%;
+    filter: hue-rotate(50deg) contrast(1.5);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) contrast(1);
+  }
 }
 
 .pokeball-falling {
@@ -222,12 +352,37 @@
 }
 
 .flash-effect {
-  animation: none;
+  animation: flash 1.5s ease-out;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
 }
 
 .horror-card {
   box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), inset 0 0 20px rgba(255, 0, 0, 0.1);
-  animation: horror-pulse-intense 3s ease-in-out infinite, horror-shake 3s ease-in-out infinite;
+  animation: horror-pulse-intense 2s ease-in-out infinite, horror-shake 4s ease-in-out infinite;
   border: 2px solid rgba(255, 0, 0, 0.6);
 }
 
@@ -284,7 +439,7 @@
 
 .horror-text {
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6);
-  animation: horror-text-glow-intense 3s ease-in-out infinite alternate, horror-text-glitch 3s ease-in-out infinite;
+  animation: horror-text-glow-intense 1.5s ease-in-out infinite alternate, horror-text-glitch 3s ease-in-out infinite;
 }
 
 @keyframes horror-text-glow-intense {
@@ -318,7 +473,7 @@
 
 .horror-modal {
   box-shadow: 0 0 80px rgba(255, 0, 0, 0.6), inset 0 0 50px rgba(255, 0, 0, 0.2);
-  animation: horror-modal-pulse-intense 2s ease-in-out infinite;
+  animation: horror-modal-pulse-intense 1.8s ease-in-out infinite;
   border: 3px solid rgba(255, 0, 0, 0.7);
 }
 
@@ -334,7 +489,7 @@
 
 .glitch-text {
   position: relative;
-  animation: glitch-intense 3s infinite;
+  animation: glitch-intense 1.5s infinite;
 }
 
 @keyframes glitch-intense {
@@ -397,13 +552,13 @@
 
 .glitch-layer:nth-child(2) {
   color: #00ff00;
-  animation-delay: 3s;
+  animation-delay: 0.1s;
   opacity: 0.8;
 }
 
 .glitch-layer:nth-child(3) {
   color: #0000ff;
-  animation-delay: 3s;
+  animation-delay: 0.2s;
   opacity: 0.6;
 }
 
@@ -442,4 +597,9 @@
     transform: translate(-1px, -1px);
     opacity: 0.6;
   }
+}
+
+.game-card {
+  position: relative;
+  z-index: 10;
 }

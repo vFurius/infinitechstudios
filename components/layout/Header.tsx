@@ -1,21 +1,27 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Home, Gamepad2, ShoppingBag, Users, Newspaper, Mail } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const toggleMenu = () => setIsOpen(!isOpen)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   const navLinks = [
-    { href: "/", label: "Inicio" },
-    { href: "/juegos", label: "Juegos" },
-    { href: "/tienda", label: "Tienda" },
-    { href: "/nosotros", label: "Nosotros" },
-    { href: "/noticias", label: "Noticias" },
-    { href: "/contacto", label: "Contacto" },
+    { href: "/", label: "Inicio", icon: Home },
+    { href: "/juegos", label: "Juegos", icon: Gamepad2 },
+    { href: "/tienda", label: "Tienda", icon: ShoppingBag },
+    { href: "/nosotros", label: "Nosotros", icon: Users },
+    { href: "/noticias", label: "Noticias", icon: Newspaper },
+    { href: "/contacto", label: "Contacto", icon: Mail },
   ]
 
   return (
@@ -46,12 +52,13 @@ export default function Header() {
         </button>
 
         <nav className="hidden md:flex space-x-6 text-base font-medium" aria-label="Navegación principal">
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
               href={href}
-              className="text-white hover:text-red-400 transition-colors duration-300 relative group px-3 py-2"
+              className="text-white hover:text-red-400 transition-colors duration-300 relative group px-3 py-2 flex items-center gap-2"
             >
+              <Icon className="w-4 h-4" />
               {label}
               <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-red-400 transition-all duration-300 group-hover:w-[calc(100%-24px)]"></span>
             </Link>
@@ -64,13 +71,14 @@ export default function Header() {
           className="w-full p-4 flex flex-col space-y-4 text-base font-medium md:hidden text-center bg-black/60 backdrop-blur-sm rounded-2xl mt-4 border border-gray-700/50"
           aria-label="Navegación móvil"
         >
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
               href={href}
-              className="text-white hover:text-red-400 transition-colors duration-300 py-2"
+              className="text-white hover:text-red-400 transition-colors duration-300 py-2 flex items-center justify-center gap-2"
               onClick={() => setIsOpen(false)}
             >
+              <Icon className="w-4 h-4" />
               {label}
             </Link>
           ))}
